@@ -9,6 +9,7 @@ Ext.define('Settings', {
                 plugins: ['rallyfieldvalidationui'],
                 fieldLabel: 'Chart Type',
                 displayField: 'name',
+                width: 200,
                 valueField: 'value',
                 editable: false,
                 allowBlank: false,
@@ -39,6 +40,7 @@ Ext.define('Settings', {
                 allowBlank: false,
                 editable: false,
                 autoSelect: false,
+                width: 300,
                 validateOnChange: false,
                 validateOnBlur: false,
                 fieldLabel: 'Type', //todo: delete when multiselect enabled
@@ -262,6 +264,72 @@ Ext.define('Settings', {
                     }
                 }
             },
+// PIE Specific Settings
+            {
+                name: 'pieDistance',
+                xtype: 'rallynumberfield',
+                label: 'Pie Label Position (- = inside slice):',
+                margin: '0 0 0 0',
+                toggleVisibility: function(chartType) {
+                    if (chartType === 'piechart') {
+                        this.show();
+                    } else {
+                        this.hide();
+                    }
+                } //,
+//                handlesEvents: {
+//                    chartselected: function (chartType) {
+//                        this.toggleVisibility(chartType);
+//                    },
+//                    typeselected: function (models, context) {
+//                        var type = Ext.Array.from(models)[0];
+//                        if (type) {
+//                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+//                        }
+//                    }
+//                }
+            },
+            {
+                name: 'pieLabelWidth',
+                xtype: 'rallynumberfield',
+                label: 'Pie Label Width (px):',
+                margin: '0 0 0 0' //,
+                //                handlesEvents: {
+                //                    chartselected: function (chartType) {
+                //                        this.toggleVisibility(chartType);
+                //                    },
+                //                    typeselected: function (models, context) {
+                //                        var type = Ext.Array.from(models)[0];
+                //                        if (type) {
+                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+                //                        }
+                //                    }
+                //                }
+            },
+            {
+                name: 'pieShowLegend',
+                xtype: 'rallycheckboxfield',
+                label: 'Pie Show Legend:',
+                margin: '0 0 0 0',
+                toggleVisibility: function(chartType) {
+                    if (chartType === 'piechart') {
+                        this.show();
+                    } else {
+                        this.hide();
+                    }
+                }//,
+                //                handlesEvents: {
+                //                    chartselected: function (chartType) {
+                //                        this.toggleVisibility(chartType);
+                //                    },
+                //                    typeselected: function (models, context) {
+                //                        var type = Ext.Array.from(models)[0];
+                //                        if (type) {
+                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+                //                        }
+                //                    }
+                //                }
+            },           
             { type: 'query' }
         ];
     }

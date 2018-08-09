@@ -412,6 +412,20 @@
     constructor: function(config) {
         config = config || {};
         this.mergeConfig(config);
+
+        this.chartConfig.plotOptions.pie.showInLegend = this.showLegend;
+//        console.log(''+this.labelWidth+'px');
+        this.chartConfig.plotOptions.pie.dataLabels.style.width = '' + this.labelWidth + 'px';
+        this.chartConfig.plotOptions.pie.dataLabels.distance = this.labelDistance;
+
+        if (this.showLegend) {
+            this.chartConfig.tooltip.pointFormat = '{point.name}';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f} %';
+        } else {
+            this.chartConfig.tooltip.pointFormat = '';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}: {point.percentage:.1f}%</b>';
+        }
+
         this.callParent([this.config]);
     }
 });
@@ -427,6 +441,7 @@
                 plugins: ['rallyfieldvalidationui'],
                 fieldLabel: 'Chart Type',
                 displayField: 'name',
+                width: 200,
                 valueField: 'value',
                 editable: false,
                 allowBlank: false,
@@ -457,6 +472,7 @@
                 allowBlank: false,
                 editable: false,
                 autoSelect: false,
+                width: 300,
                 validateOnChange: false,
                 validateOnBlur: false,
                 fieldLabel: 'Type', //todo: delete when multiselect enabled
@@ -680,6 +696,72 @@
                     }
                 }
             },
+// PIE Specific Settings
+            {
+                name: 'pieDistance',
+                xtype: 'rallynumberfield',
+                label: 'Pie Label Position (- = inside slice):',
+                margin: '0 0 0 0',
+                toggleVisibility: function(chartType) {
+                    if (chartType === 'piechart') {
+                        this.show();
+                    } else {
+                        this.hide();
+                    }
+                } //,
+//                handlesEvents: {
+//                    chartselected: function (chartType) {
+//                        this.toggleVisibility(chartType);
+//                    },
+//                    typeselected: function (models, context) {
+//                        var type = Ext.Array.from(models)[0];
+//                        if (type) {
+//                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+//                        }
+//                    }
+//                }
+            },
+            {
+                name: 'pieLabelWidth',
+                xtype: 'rallynumberfield',
+                label: 'Pie Label Width (px):',
+                margin: '0 0 0 0' //,
+                //                handlesEvents: {
+                //                    chartselected: function (chartType) {
+                //                        this.toggleVisibility(chartType);
+                //                    },
+                //                    typeselected: function (models, context) {
+                //                        var type = Ext.Array.from(models)[0];
+                //                        if (type) {
+                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+                //                        }
+                //                    }
+                //                }
+            },
+            {
+                name: 'pieShowLegend',
+                xtype: 'rallycheckboxfield',
+                label: 'Pie Show Legend:',
+                margin: '0 0 0 0',
+                toggleVisibility: function(chartType) {
+                    if (chartType === 'piechart') {
+                        this.show();
+                    } else {
+                        this.hide();
+                    }
+                }//,
+                //                handlesEvents: {
+                //                    chartselected: function (chartType) {
+                //                        this.toggleVisibility(chartType);
+                //                    },
+                //                    typeselected: function (models, context) {
+                //                        var type = Ext.Array.from(models)[0];
+                //                        if (type) {
+                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
+                //                        }
+                //                    }
+                //                }
+            },           
             { type: 'query' }
         ];
     }
@@ -699,6 +781,7 @@
             aggregationType: 'count',
             bucketBy: '',
             stackField: '',
+            labelWidth: 150,
             query: ''
         }
     },
@@ -834,11 +917,17 @@
     _getChartConfig: function() {
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
+            lWidth = this.getSetting('pieLabelWidth'),
+            lDistance = this.getSetting('pieDistance'),
+            sLegend = this.getSetting('pieShowLegend'),
             stackValues = this.stackValues,
             model = this.models[0],
             config = {
                 xtype: chartType,
                 enableStacking: !!stackField,
+                labelWidth: lWidth,
+                showLegend: !!sLegend,
+                labelDistance: lDistance,
                 chartColors: [
                 "#FF8200", // $orange
                 "#F6A900", // $gold
@@ -946,8 +1035,7 @@
 
             Rally.launchApp('CustomChartApp', {
                 name:"Custom Chart",
-                parentRepos:"",
-                version:"1.2.8"
+	            parentRepos:""
             });
 
         });

@@ -12,6 +12,7 @@ Ext.define('CustomChartApp', {
             aggregationType: 'count',
             bucketBy: '',
             stackField: '',
+            labelWidth: 150,
             query: ''
         }
     },
@@ -147,11 +148,17 @@ Ext.define('CustomChartApp', {
     _getChartConfig: function() {
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
+            lWidth = this.getSetting('pieLabelWidth'),
+            lDistance = this.getSetting('pieDistance'),
+            sLegend = this.getSetting('pieShowLegend'),
             stackValues = this.stackValues,
             model = this.models[0],
             config = {
                 xtype: chartType,
                 enableStacking: !!stackField,
+                labelWidth: lWidth,
+                showLegend: !!sLegend,
+                labelDistance: lDistance,
                 chartColors: [
                 "#FF8200", // $orange
                 "#F6A900", // $gold

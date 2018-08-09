@@ -38,6 +38,20 @@ Ext.define('PieChart', {
     constructor: function(config) {
         config = config || {};
         this.mergeConfig(config);
+
+        this.chartConfig.plotOptions.pie.showInLegend = this.showLegend;
+//        console.log(''+this.labelWidth+'px');
+        this.chartConfig.plotOptions.pie.dataLabels.style.width = '' + this.labelWidth + 'px';
+        this.chartConfig.plotOptions.pie.dataLabels.distance = this.labelDistance;
+
+        if (this.showLegend) {
+            this.chartConfig.tooltip.pointFormat = '{point.name}';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f} %';
+        } else {
+            this.chartConfig.tooltip.pointFormat = '';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}: {point.percentage:.1f}%</b>';
+        }
+
         this.callParent([this.config]);
     }
 });
