@@ -26,7 +26,8 @@ Ext.define('PieChart', {
                         enabled: true,
                         format: '<b>{point.name}:</b> {point.percentage:.1f}% ({point.y}/{point.total})',
                         style: {
-                            color: 'black'
+                            color: 'black',
+                            align: 'center'
                         }
                     }
                 }
@@ -46,10 +47,10 @@ Ext.define('PieChart', {
 
         if (this.showLegend) {
             this.chartConfig.tooltip.pointFormat = '{point.name}';
-            this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f} %';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f}%';
         } else {
             this.chartConfig.tooltip.pointFormat = '';
-            this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}: {point.percentage:.1f}%</b>';
+            this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}<br/><b>({point.percentage:.1f}%)';
         }
 
         this.callParent([this.config]);

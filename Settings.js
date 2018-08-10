@@ -276,35 +276,30 @@ Ext.define('Settings', {
                     } else {
                         this.hide();
                     }
-                } //,
-//                handlesEvents: {
-//                    chartselected: function (chartType) {
-//                        this.toggleVisibility(chartType);
-//                    },
-//                    typeselected: function (models, context) {
-//                        var type = Ext.Array.from(models)[0];
-//                        if (type) {
-//                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
-//                        }
-//                    }
-//                }
+                },
+                handlesEvents: {
+                    chartselected: function (chartType) {
+                        this.toggleVisibility(chartType);
+                    }
+                }
             },
             {
                 name: 'pieLabelWidth',
                 xtype: 'rallynumberfield',
                 label: 'Pie Label Width (px):',
-                margin: '0 0 0 0' //,
-                //                handlesEvents: {
-                //                    chartselected: function (chartType) {
-                //                        this.toggleVisibility(chartType);
-                //                    },
-                //                    typeselected: function (models, context) {
-                //                        var type = Ext.Array.from(models)[0];
-                //                        if (type) {
-                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
-                //                        }
-                //                    }
-                //                }
+                margin: '0 0 0 0',
+                toggleVisibility: function(chartType) {
+                    if (chartType === 'piechart') {
+                        this.show();
+                    } else {
+                        this.hide();
+                    }
+                },
+                handlesEvents: {
+                    chartselected: function (chartType) {
+                        this.toggleVisibility(chartType);
+                    }
+                }
             },
             {
                 name: 'pieShowLegend',
@@ -317,18 +312,12 @@ Ext.define('Settings', {
                     } else {
                         this.hide();
                     }
-                }//,
-                //                handlesEvents: {
-                //                    chartselected: function (chartType) {
-                //                        this.toggleVisibility(chartType);
-                //                    },
-                //                    typeselected: function (models, context) {
-                //                        var type = Ext.Array.from(models)[0];
-                //                        if (type) {
-                //                            this.refreshWithNewModelType(type, context); //todo: how to handle multiple models
-                //                        }
-                //                    }
-                //                }
+                },
+                handlesEvents: {
+                    chartselected: function (chartType) {
+                        this.toggleVisibility(chartType);
+                    }
+                }
             },           
             { type: 'query' }
         ];

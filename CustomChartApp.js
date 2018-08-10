@@ -12,7 +12,9 @@ Ext.define('CustomChartApp', {
             aggregationType: 'count',
             bucketBy: '',
             stackField: '',
-            labelWidth: 150,
+            pieLabelWidth: 150,
+            pieDistance: 30,
+            pieShowLegend: false,
             query: ''
         }
     },
@@ -160,17 +162,40 @@ Ext.define('CustomChartApp', {
                 showLegend: !!sLegend,
                 labelDistance: lDistance,
                 chartColors: [
-                "#FF8200", // $orange
-                "#F6A900", // $gold
-                "#FAD200", // $yellow
-                "#8DC63F", // $lime
-                "#1E7C00", // $green_dk
-                "#337EC6", // $blue_link
-                "#005EB8", // $blue
-                "#7832A5", // $purple,
-                "#DA1884",  // $pink,
-                "#C0C0C0" // $grey4
-                ],
+//                "#FF8200", // $orange
+//                "#F6A900", // $gold
+//                "#FAD200", // $yellow
+//                "#8DC63F", // $lime
+//                "#1E7C00", // $green_dk
+//                "#337EC6", // $blue_link
+//                "#005EB8", // $blue
+//                "#7832A5", // $purple,
+//                "#DA1884",  // $pink,
+//                "#C0C0C0" // $grey4
+'#c42525', // drk salmon
+'#a6c96a', // lt olive green
+'#7cb5ec', // lt blue
+'#90ed7d', // lt green
+'#f7a35c', // peach
+'#8085e9', // lt purple
+'#aa1925', // med red
+'#f15c80', // pink
+'#e4d354', // gold
+'#2b908f', // drk teal
+'#f45b5b', // med salmon
+'#91e8e1', // cyan ish
+'#1aadce', // med cyan
+'#4572A7', // steel blue
+'#AA4643', // drk salmon
+'#89A54E', // med olive green
+'#80699B', // med purple
+'#3D96AE', // med teal
+'#DB843D', // lt orange
+'#92A8CD', // lt steel blue
+'#A47D7C', // mauve
+'#434348', // drk gray
+'#B5CA92' // lt olive
+],
                 storeConfig: {
                     context: this.getContext().getDataContext(),
                     //TODO: can we do summary fetch here and not limit infinity?
