@@ -264,6 +264,22 @@ Ext.define('Settings', {
                     }
                 }
             },
+            {name: 'customColors', xtype: 'label', text: 'Chart Colors (name, #number, rgba(x,x,x,x)):'},
+            {name: 'customColor1', xtype: 'rallytextfield', label: 'Color 1:', margin: '0 0 0 10'},
+            {name: 'customColor2', xtype: 'rallytextfield', label: 'Color 2:', margin: '0 0 0 10'},
+            {name: 'customColor3', xtype: 'rallytextfield', label: 'Color 3:', margin: '0 0 0 10'},
+            {name: 'customColor4', xtype: 'rallytextfield', label: 'Color 4:', margin: '0 0 0 10'},
+            {name: 'customColor5', xtype: 'rallytextfield', label: 'Color 5:', margin: '0 0 0 10'},
+            {name: 'customColor6', xtype: 'rallytextfield', label: 'Color 6:', margin: '0 0 0 10'},
+            {name: 'customColor7', xtype: 'rallytextfield', label: 'Color 7:', margin: '0 0 0 10'},
+            {name: 'customColor8', xtype: 'rallytextfield', label: 'Color 8:', margin: '0 0 0 10'},
+            {
+                name: 'customColor9',
+                xtype: 'rallytextfield',
+                width: 500,
+                label: 'Colors 9-n:',
+                margin: '0 0 10 10'
+            },
 // PIE Specific Settings
             {
                 name: 'pieDistance',

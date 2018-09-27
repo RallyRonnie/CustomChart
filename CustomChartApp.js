@@ -15,6 +15,15 @@ Ext.define('CustomChartApp', {
             pieLabelWidth: 150,
             pieDistance: 30,
             pieShowLegend: false,
+            customColor1: 'Green',
+            customColor2: 'Blue',
+            customColor3: 'Purple',
+            customColor4: 'Orange',
+            customColor5: 'Pink',
+            customColor6: 'Lime',
+            customColor7: 'Navy',
+            customColor8: 'Magenta',
+            customColor9: 'Brown, Maroon, Grey, Red, Teal, Olive, Beige',
             query: ''
         }
     },
@@ -148,6 +157,15 @@ Ext.define('CustomChartApp', {
     },
 
     _getChartConfig: function() {
+        var cColors = [this.getSetting('customColor1')];
+        cColors.push (this.getSetting('customColor2'));
+        cColors.push (this.getSetting('customColor3'));
+        cColors.push (this.getSetting('customColor4'));
+        cColors.push (this.getSetting('customColor5'));
+        cColors.push (this.getSetting('customColor6'));
+        cColors.push (this.getSetting('customColor7'));
+        cColors.push (this.getSetting('customColor8'));
+        cColors.push(this.getSetting('customColor9').split(","));
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
             lWidth = this.getSetting('pieLabelWidth'),
@@ -161,67 +179,7 @@ Ext.define('CustomChartApp', {
                 labelWidth: lWidth,
                 showLegend: !!sLegend,
                 labelDistance: lDistance,
-                chartColors: [
-// Primary
-                    '#a6cee3',
-                    '#1f78b4',
-                    '#b2df8a',
-                    '#33a02c',
-                    '#fb9a99',
-                    '#e31a1c',
-                    '#fdbf6f',
-                    '#ff7f00',
-                    '#cab2d6',
-                    '#6a3d9a',
-                    '#ffff99',
-                    '#b15928',
-                    '#8dd3c7', // Pastels
-                    '#ffffb3',
-                    '#bebada',
-                    '#fb8072',
-                    '#80b1d3',
-                    '#fdb462',
-                    '#b3de69',
-                    '#fccde5',
-                    '#d9d9d9',
-                    '#bc80bd',
-                    '#ccebc5',
-                    '#ffed6f',
-// default in community and kmores app
-//                "#FF8200", // $orange
-//                "#F6A900", // $gold
-//                "#FAD200", // $yellow
-//                "#8DC63F", // $lime
-//                "#1E7C00", // $green_dk
-//                "#337EC6", // $blue_link
-//                "#005EB8", // $blue
-//                "#7832A5", // $purple,
-//                "#DA1884",  // $pink,
-//                "#C0C0C0" // $grey4
-'#c42525', // drk salmon
-'#a6c96a', // lt olive green
-'#7cb5ec', // lt blue
-'#90ed7d', // lt green
-'#f7a35c', // peach
-'#8085e9', // lt purple
-'#aa1925', // med red
-'#f15c80', // pink
-'#e4d354', // gold
-'#2b908f', // drk teal
-'#f45b5b', // med salmon
-'#91e8e1', // cyan ish
-'#1aadce', // med cyan
-'#4572A7', // steel blue
-'#AA4643', // drk salmon
-'#89A54E', // med olive green
-'#80699B', // med purple
-'#3D96AE', // med teal
-'#DB843D', // lt orange
-'#92A8CD', // lt steel blue
-'#A47D7C', // mauve
-'#434348', // drk gray
-'#B5CA92' // lt olive
-],
+                chartColors: cColors,
                 storeConfig: {
                     context: this.getContext().getDataContext(),
                     //TODO: can we do summary fetch here and not limit infinity?
