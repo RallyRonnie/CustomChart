@@ -4,11 +4,13 @@
 
 This app is the chart equivalent of the Custom Board and Custom List apps.  Pick a chart type (pie, bar or column), an object type, and a field to be aggregated and gain insight into your process via the generated chart.  Use the advanced filtering control to further slice and dice your data.  The data is also exportable for more fine grained inspection.
 
-![custom BAR chart screenshot](images/CustomChartBar.png "Custom Chart Screenshots")
+## Screenshots with Settings for each chart type
 
-![custom COLUMN chart screenshot](images/CustomChartCol.png "Custom Chart Screenshots")
+![custom BAR chart screenshot](images/CustomChartBar.png "Custom BAR Chart Screenshots")
 
-![custom PIE chart screenshot](images/CustomChartPie.png "Custom Chart Screenshots")
+![custom COLUMN chart screenshot](images/CustomChartCol.png "Custom COLUMN Chart Screenshots")
+
+![custom PIE chart screenshot](images/CustomChartPie.png "Custom PIE Chart Screenshots")
 
 ## Installation and Settings
 The app is installed as a Custom HTML App ([see help documentation](https://help.rallydev.com/custom-html))
