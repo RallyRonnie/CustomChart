@@ -697,7 +697,7 @@
                     }
                 }
             },
-            {name: 'customColors', xtype: 'label', text: 'Chart Colors (Name, #number, rgb(x,x,x)):'},
+            {name: 'customColors', xtype: 'label', text: 'Chart Colors (name, #number, rgba(x,x,x,x)):'},
             {name: 'customColor1', xtype: 'rallytextfield', label: 'Color 1:', margin: '0 0 0 10'},
             {name: 'customColor2', xtype: 'rallytextfield', label: 'Color 2:', margin: '0 0 0 10'},
             {name: 'customColor3', xtype: 'rallytextfield', label: 'Color 3:', margin: '0 0 0 10'},
@@ -798,7 +798,7 @@
             customColor6: 'Lime',
             customColor7: 'Navy',
             customColor8: 'Magenta',
-            customColor9: 'Brown, Maroon, Grey, Red, Teal, Olive, Beige',
+            customColor9: 'Brown; Maroon; Grey; Red; Teal; Olive; Beige',
             query: ''
         }
     },
@@ -940,7 +940,7 @@
         cColors.push (this.getSetting('customColor6'));
         cColors.push (this.getSetting('customColor7'));
         cColors.push (this.getSetting('customColor8'));
-        cColors.push(this.getSetting('customColor9').split(","));
+        cColors.push(this.getSetting('customColor9').split(";"));
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
             lWidth = this.getSetting('pieLabelWidth'),

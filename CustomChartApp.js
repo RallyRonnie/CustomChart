@@ -23,7 +23,7 @@ Ext.define('CustomChartApp', {
             customColor6: 'Lime',
             customColor7: 'Navy',
             customColor8: 'Magenta',
-            customColor9: 'Brown, Maroon, Grey, Red, Teal, Olive, Beige',
+            customColor9: 'Brown; Maroon; Grey; Red; Teal; Olive; Beige',
             query: ''
         }
     },
@@ -165,7 +165,7 @@ Ext.define('CustomChartApp', {
         cColors.push (this.getSetting('customColor6'));
         cColors.push (this.getSetting('customColor7'));
         cColors.push (this.getSetting('customColor8'));
-        cColors.push(this.getSetting('customColor9').split(","));
+        cColors.push(this.getSetting('customColor9').split(";"));
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
             lWidth = this.getSetting('pieLabelWidth'),
