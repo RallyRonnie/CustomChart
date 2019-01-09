@@ -13,6 +13,53 @@ Ext.define('Calculator', {
     },
 
     prepareChartData: function(store) {
+        var chartData = this._prepareChartData(store);
+
+        if (_.contains([this.field, this.stackField], 'DisplayColor')) {
+           this._makeColorsSane(chartData);
+        }
+        return chartData;
+    },
+
+    _hexToColor: _.memoize(function(hex) {
+        return _.find(Rally.util.Colors.DISPLAY_COLOR_PALETTE, function (color) {
+            return color.value.toLowerCase() === hex.toLowerCase();
+        });
+    }),
+
+    _makeColorsSane: function(chartData) {
+        if (this.field === 'DisplayColor') {
+            if (!this.stackField) {
+                chartData.series[0].data = _.map(chartData.series[0].data, function (data) {
+                    var colorData = _.find(Rally.util.Colors.DISPLAY_COLOR_PALETTE, function (color) {
+                        return color.value.toLowerCase() === data[0].toLowerCase();
+                    });
+                    var seriesData = {name: (colorData && colorData.name) || data[0], y: data[1]};
+                    if (colorData && colorData.value) {
+                        seriesData.color = colorData.value;
+                    }
+                    return seriesData;
+                });
+            }
+
+            chartData.categories = _.map(chartData.categories, function(category) {
+                var colorData = this._hexToColor(category);
+                return (colorData && colorData.name) || category;
+            }, this);
+        } else if (this.stackField === 'DisplayColor') {
+            _.each(chartData.series, function (series) {
+                var colorValue = series.name;
+                var colorData = this._hexToColor(colorValue);
+                if (colorData) {
+                    series.name = (colorData && colorData.name) || colorValue;
+                    series.color = colorValue;
+                }
+            }, this);
+        }
+
+        return chartData;
+    },
+    _prepareChartData: function(store) {
         var data = this._groupData(store),
         categories = _.keys(data),
         seriesData;

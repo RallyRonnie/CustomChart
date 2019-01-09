@@ -54,5 +54,8 @@ Ext.define('BarChart', {
         }
 
         this.callParent([this.config]);
+    },
+    _isData: function(point) {
+        return point > 0 || !!(point && point.y);
     }
 });
