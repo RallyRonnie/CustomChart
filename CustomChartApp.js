@@ -6,6 +6,7 @@ Ext.define('CustomChartApp', {
 
     config: {
         defaultSettings: {
+            ctitle: '',
             types: 'Defect',
             chartType: 'piechart',
             aggregationField: 'State',
@@ -155,8 +156,8 @@ Ext.define('CustomChartApp', {
         var chartType = this.getSetting('chartType');
         return chartType !== 'piechart' ? this.getSetting('stackField') : null;
     },
-
     _getChartConfig: function() {
+        cTitle = this.getSetting('ctitle');
         var cColors = [this.getSetting('customColor1')];
         cColors.push (this.getSetting('customColor2'));
         cColors.push (this.getSetting('customColor3'));
@@ -180,6 +181,7 @@ Ext.define('CustomChartApp', {
                 showLegend: !!sLegend,
                 labelDistance: lDistance,
                 chartColors: cColors,
+                chartTitle: cTitle,
                 storeConfig: {
                     context: this.getContext().getDataContext(),
                     //TODO: can we do summary fetch here and not limit infinity?

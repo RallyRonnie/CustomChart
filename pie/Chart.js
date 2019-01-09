@@ -41,6 +41,7 @@ Ext.define('PieChart', {
         this.mergeConfig(config);
 
         this.chartConfig.plotOptions.pie.showInLegend = this.showLegend;
+        this.chartConfig.title.text = this.chartTitle;
 //        console.log(''+this.labelWidth+'px');
         this.chartConfig.plotOptions.pie.dataLabels.style.width = '' + this.labelWidth + 'px';
         this.chartConfig.plotOptions.pie.dataLabels.distance = this.labelDistance;
@@ -49,7 +50,7 @@ Ext.define('PieChart', {
             this.chartConfig.tooltip.pointFormat = '{point.name}';
             this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f}%';
         } else {
-            this.chartConfig.tooltip.pointFormat = '';
+            this.chartConfig.tooltip.pointFormat = '<b>{point.name}:</b>Count = ({point.y}/{point.total})';
             this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}<br/><b>({point.percentage:.1f}%)';
         }
 

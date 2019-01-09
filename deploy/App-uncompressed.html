@@ -415,6 +415,7 @@
         this.mergeConfig(config);
 
         this.chartConfig.plotOptions.pie.showInLegend = this.showLegend;
+        this.chartConfig.title.text = this.chartTitle;
 //        console.log(''+this.labelWidth+'px');
         this.chartConfig.plotOptions.pie.dataLabels.style.width = '' + this.labelWidth + 'px';
         this.chartConfig.plotOptions.pie.dataLabels.distance = this.labelDistance;
@@ -423,7 +424,7 @@
             this.chartConfig.tooltip.pointFormat = '{point.name}';
             this.chartConfig.plotOptions.pie.dataLabels.format = '{point.percentage:.1f}%';
         } else {
-            this.chartConfig.tooltip.pointFormat = '';
+            this.chartConfig.tooltip.pointFormat = '<b>{point.name}:</b>Count = ({point.y}/{point.total})';
             this.chartConfig.plotOptions.pie.dataLabels.format = '<b>{point.name}<br/><b>({point.percentage:.1f}%)';
         }
 
@@ -436,6 +437,7 @@
 
     getSettingsFields: function(context) {
          return [
+             {name: 'ctitle', xtype: 'rallytextfield', fieldLabel: 'Chart Title'},
             {
                 name: 'chartType',
                 xtype: 'rallycombobox',
@@ -781,6 +783,7 @@
 
     config: {
         defaultSettings: {
+            ctitle: '',
             types: 'Defect',
             chartType: 'piechart',
             aggregationField: 'State',
@@ -930,8 +933,8 @@
         var chartType = this.getSetting('chartType');
         return chartType !== 'piechart' ? this.getSetting('stackField') : null;
     },
-
     _getChartConfig: function() {
+        cTitle = this.getSetting('ctitle');
         var cColors = [this.getSetting('customColor1')];
         cColors.push (this.getSetting('customColor2'));
         cColors.push (this.getSetting('customColor3'));
@@ -955,6 +958,7 @@
                 showLegend: !!sLegend,
                 labelDistance: lDistance,
                 chartColors: cColors,
+                chartTitle: cTitle,
                 storeConfig: {
                     context: this.getContext().getDataContext(),
                     //TODO: can we do summary fetch here and not limit infinity?
