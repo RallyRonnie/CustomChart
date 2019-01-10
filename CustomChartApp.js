@@ -157,7 +157,7 @@ Ext.define('CustomChartApp', {
         return chartType !== 'piechart' ? this.getSetting('stackField') : null;
     },
     _getChartConfig: function() {
-        cTitle = this.getSetting('ctitle');
+        var cTitle = this.getSetting('ctitle');
         var cColors = [this.getSetting('customColor1')];
         cColors.push (this.getSetting('customColor2'));
         cColors.push (this.getSetting('customColor3'));
