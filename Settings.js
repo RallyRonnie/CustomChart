@@ -3,7 +3,7 @@ Ext.define('Settings', {
 
     getSettingsFields: function(context) {
          return [
-             {name: 'ctitle', xtype: 'rallytextfield', fieldLabel: 'Chart Title', width: 300},
+             {name: 'ctitle', xtype: 'rallytextfield', fieldLabel: 'Chart Title', width: 500},
             {
                 name: 'chartType',
                 xtype: 'rallycombobox',
