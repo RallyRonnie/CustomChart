@@ -28,6 +28,18 @@ Ext.define('Calculator', {
     }),
 
     _makeColorsSane: function(chartData) {
+        var rallyColors = Rally.util.Colors.DISPLAY_COLOR_PALETTE;
+//        console.log(rallyColors);
+        rallyColors[0].name = Rally.getApp().getSetting('customLabel1');
+        rallyColors[1].name = Rally.getApp().getSetting('customLabel2');
+        rallyColors[2].name = Rally.getApp().getSetting('customLabel3');
+        rallyColors[3].name = Rally.getApp().getSetting('customLabel4');
+        rallyColors[4].name = Rally.getApp().getSetting('customLabel5');
+        rallyColors[5].name = Rally.getApp().getSetting('customLabel6');
+        rallyColors[6].name = Rally.getApp().getSetting('customLabel7');
+        rallyColors[7].name = Rally.getApp().getSetting('customLabel8');
+        rallyColors[8].name = Rally.getApp().getSetting('customLabel9');
+//        console.log(rallyColors);
         if (this.field === 'DisplayColor') {
             if (!this.stackField) {
                 chartData.series[0].data = _.map(chartData.series[0].data, function (data) {

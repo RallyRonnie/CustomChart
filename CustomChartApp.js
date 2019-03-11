@@ -25,6 +25,15 @@ Ext.define('CustomChartApp', {
             customColor7: 'Navy',
             customColor8: 'Magenta',
             customColor9: 'Brown; Maroon; Grey; Red; Teal; Olive; Beige',
+            customLabel1: 'Dark Blue',
+            customLabel2: 'Blue',
+            customLabel3: 'Green',
+            customLabel4: 'Purple',
+            customLabel5: 'Pink',
+            customLabel6: 'Burnt Orange',
+            customLabel7: 'Orange',
+            customLabel8: 'Yellow',
+            customLabel9: 'Grey',
             query: ''
         }
     },

@@ -281,6 +281,16 @@ Ext.define('Settings', {
                 label: 'Colors 9-n:',
                 margin: '0 0 10 10'
             },
+            {name: 'customLabels', xtype: 'label', text: 'Rally Colors Custom Display Labels:'},
+            {name: 'customLabel1', xtype: 'rallytextfield', label: 'Dark Blue:', margin: '0 0 0 10'},
+            {name: 'customLabel2', xtype: 'rallytextfield', label: 'Blue:', margin: '0 0 0 10'},
+            {name: 'customLabel3', xtype: 'rallytextfield', label: 'Green:', margin: '0 0 0 10'},
+            {name: 'customLabel4', xtype: 'rallytextfield', label: 'Purple:', margin: '0 0 0 10'},
+            {name: 'customLabel5', xtype: 'rallytextfield', label: 'Pink:', margin: '0 0 0 10'},
+            {name: 'customLabel6', xtype: 'rallytextfield', label: 'Burnt Orange:', margin: '0 0 0 10'},
+            {name: 'customLabel7', xtype: 'rallytextfield', label: 'Orange:', margin: '0 0 0 10'},
+            {name: 'customLabel8', xtype: 'rallytextfield', label: 'Yellow:', margin: '0 0 0 10'},
+            {name: 'customLabel9', xtype: 'rallytextfield', label: 'Grey:', margin: '0 0 0 10'},
 // PIE Specific Settings
             {
                 name: 'pieDistance',
