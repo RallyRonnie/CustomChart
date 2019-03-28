@@ -26,7 +26,7 @@ Pick the type of data to include in the chart- Defect for example.
 
 #### Aggregate By
 Pick the attribute on the previously selected type which will be used for generating the summary data for the chart. If this is the "Display Color" field, APP Settings will have additional settings to define the label 
-coorsponding to the meaning of the color (see settings image).
+corresponding to the meaning of the color (see settings image).
 
 #### Bucket By
 Available for bar and column charts.  If the previously selected Aggregate By attribute is of type date this setting allows you to choose the granularity of the chart axis.  Supported values include Day, Week, Month, Quarter and Year.
