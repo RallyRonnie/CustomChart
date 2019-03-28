@@ -25,15 +25,15 @@ Ext.define('CustomChartApp', {
             customColor7: 'Navy',
             customColor8: 'Magenta',
             customColor9: 'Brown; Maroon; Grey; Red; Teal; Olive; Beige',
-            customLabel1: 'Dark Blue',
-            customLabel2: 'Blue',
-            customLabel3: 'Green',
-            customLabel4: 'Purple',
-            customLabel5: 'Pink',
-            customLabel6: 'Burnt Orange',
-            customLabel7: 'Orange',
-            customLabel8: 'Yellow',
-            customLabel9: 'Grey',
+            customLabel1: 'Dark Blue label',
+            customLabel2: 'Blue Label',
+            customLabel3: 'Green Label',
+            customLabel4: 'Purple Label',
+            customLabel5: 'Pink Label',
+            customLabel6: 'Burnt Orange Label',
+            customLabel7: 'Orange Label',
+            customLabel8: 'Yellow Label',
+            customLabel9: 'Grey Label',
             query: ''
         }
     },
@@ -175,7 +175,11 @@ Ext.define('CustomChartApp', {
         cColors.push (this.getSetting('customColor6'));
         cColors.push (this.getSetting('customColor7'));
         cColors.push (this.getSetting('customColor8'));
-        cColors.push(this.getSetting('customColor9').split(";"));
+//        cColors.push(this.getSetting('customColor9').split(";"));
+        this.getSetting('customColor9').split(";").forEach(function(item){
+            cColors.push(item.replace(/ /g,''));
+        });
+        console.log(cColors);
         var chartType = this.getSetting('chartType'),
             stackField = this._getStackingSetting(),
             lWidth = this.getSetting('pieLabelWidth'),

@@ -12,6 +12,8 @@ This app is the chart equivalent of the Custom Board and Custom List apps.  Pick
 
 ![custom PIE chart screenshot](images/CustomChartPie.png "Custom PIE Chart Screenshots")
 
+![custom color screenshot](images/ColorLabels.png "Custom Display Color labels")
+
 ## Installation and Settings
 The app is installed as a Custom HTML App ([see help documentation](https://help.rallydev.com/custom-html))
 Once the app is installed, use the gear menu on the app panel and select "Edit App Settings". There are a few settings you can configure for each chart type.
@@ -23,7 +25,8 @@ Pick the type of chart you'd like to create.  Bar, column, and pie charts are cu
 Pick the type of data to include in the chart- Defect for example.
 
 #### Aggregate By
-Pick the attribute on the previously selected type which will be used for generating the summary data for the chart.
+Pick the attribute on the previously selected type which will be used for generating the summary data for the chart. If this is the "Display Color" field, APP Settings will have additional settings to define the label 
+coorsponding to the meaning of the color (see settings image).
 
 #### Bucket By
 Available for bar and column charts.  If the previously selected Aggregate By attribute is of type date this setting allows you to choose the granularity of the chart axis.  Supported values include Day, Week, Month, Quarter and Year.

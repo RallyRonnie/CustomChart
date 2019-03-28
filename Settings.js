@@ -278,19 +278,41 @@ Ext.define('Settings', {
                 name: 'customColor9',
                 xtype: 'rallytextfield',
                 width: 500,
-                label: 'Colors 9-n:',
+                label: 'Colors 9-n (delim ;):',
                 margin: '0 0 10 10'
             },
-            {name: 'customLabels', xtype: 'label', text: 'Rally Colors Custom Display Labels:'},
-            {name: 'customLabel1', xtype: 'rallytextfield', label: 'Dark Blue:', margin: '0 0 0 10'},
-            {name: 'customLabel2', xtype: 'rallytextfield', label: 'Blue:', margin: '0 0 0 10'},
-            {name: 'customLabel3', xtype: 'rallytextfield', label: 'Green:', margin: '0 0 0 10'},
-            {name: 'customLabel4', xtype: 'rallytextfield', label: 'Purple:', margin: '0 0 0 10'},
-            {name: 'customLabel5', xtype: 'rallytextfield', label: 'Pink:', margin: '0 0 0 10'},
-            {name: 'customLabel6', xtype: 'rallytextfield', label: 'Burnt Orange:', margin: '0 0 0 10'},
-            {name: 'customLabel7', xtype: 'rallytextfield', label: 'Orange:', margin: '0 0 0 10'},
-            {name: 'customLabel8', xtype: 'rallytextfield', label: 'Yellow:', margin: '0 0 0 10'},
-            {name: 'customLabel9', xtype: 'rallytextfield', label: 'Grey:', margin: '0 0 0 10'},
+// Handle Display Color by allowing the setting of the label vs. the color name
+            {name: 'customLabels', xtype: 'label', text: 'Rally Colors Custom Display Labels:', hidden: true,
+                handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel1', xtype: 'rallytextfield', label: 'Dark Blue:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel2', xtype: 'rallytextfield', label: 'Blue:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel3', xtype: 'rallytextfield', label: 'Green:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel4', xtype: 'rallytextfield', label: 'Purple:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel5', xtype: 'rallytextfield', label: 'Pink:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel6', xtype: 'rallytextfield', label: 'Burnt Orange:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel7', xtype: 'rallytextfield', label: 'Orange:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel8', xtype: 'rallytextfield', label: 'Yellow:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+            {name: 'customLabel9', xtype: 'rallytextfield', label: 'Grey:', margin: '0 0 0 10', hidden: true,
+            handlesEvents: {fieldselected: function(field) { if (field.name === 'DisplayColor') {
+                this.show(); } else { this.hide(); }}}},
+
 // PIE Specific Settings
             {
                 name: 'pieDistance',

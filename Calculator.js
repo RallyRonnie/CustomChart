@@ -87,6 +87,7 @@ Ext.define('Calculator', {
                         var valueField = this._getValueFieldForCalculationType();
                         return total + r.get(valueField);
                     }, 0, this);
+//                    console.log(key, valueTotal);
                     return [key, valueTotal];
                 }, this);
             }
